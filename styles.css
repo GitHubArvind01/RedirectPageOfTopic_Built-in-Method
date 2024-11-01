@@ -1,0 +1,93 @@
+/* Reset and global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+/* Container styling */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: #333;
+}
+
+/* Notes grid styling */
+.notes-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 column by default (mobile) */
+    gap: 20px;
+}
+
+/* Note card styling */
+.note {
+    background-color: white;
+    border-radius: 8px; /* Curved corners */
+    overflow: hidden; /* Ensures rounded corners for images */
+    transition: transform 0.3s ease; /* Transition for hover effect */
+    display: block; /* Makes the whole card clickable */
+}
+
+/* Image styling inside the note card */
+.note img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensures images cover the space without distortion */
+}
+
+/* Hover effect for desktop (scale effect) */
+.note:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+/* Responsive grid for tablets (2 columns) */
+@media screen and (min-width: 768px) {
+    .notes-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets and larger */
+    }
+
+    /* Adjust image height for tablets */
+    .note img {
+        height: auto; /* Set a height for images on tablets */
+    }
+}
+
+/* Responsive grid for desktops (2 columns) */
+@media screen and (min-width: 1024px) {
+    .notes-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for desktops */
+    }
+
+    /* Adjust image height for desktops */
+    .note img {
+        height: auto; /* Set a height for images on desktops */
+    } 
+}
+
+/* Disable hover effect on mobile devices */
+@media (max-width: 768px) {
+    .note {
+        transition: none; /* Disable transition */
+        transform: none; /* Disable scaling */
+    }
+}
+
+/* Disable hover effect for touch devices */
+@media (hover: none) {
+    .note {
+        transition: none; /* No transition on touch devices */
+        transform: none; /* Disable transform */
+    }
+}
